@@ -1,19 +1,28 @@
-[![Generic badge](https://img.shields.io/badge/CV-Assignment:2-BLUE.svg)](https://shields.io/)
-[![Generic badge](https://img.shields.io/badge/DUE-23:59hrs,21/02/2021-RED.svg)](https://shields.io/)
-# Assignment-2
-The goal of this assignment is to familiarize you with Image mosaicing and Stereo correspondence problem.
+# Image Mosaicing
 
-Please raise doubts on the appropriate assignment thread on moodle.
+Image mosaicing is an effective means of constructing a single seamless image by aligning multiple partially overlapped images. 
 
-# Instructions
-- Follow the directory structure as shown below: 
-  ```
-  ├── src           
-        ├── Assignment2.ipynb
-  ├── images            //your images
-  └── README.md
-  ```
-- `src` will contain the Jupyter notebook(s) used for the assignment.
-- `images` will contain images used for the questions.
-- Follow this directory structure for all following assignments in this course.
-- **Make sure you run your Jupyter notebook before committing, to save all outputs.**
+
+### Algorithm for two images
+
+1. Find the keypoints and descriptiors of two images using SIFT
+2. Fnd the matches using FlannBasedMatcher and KNN
+3. Extract good matches from them with a threshold (0.3 is used for this project)
+4. Find the homography matrix for both the images using RANSAC
+5. Transform one image to other using homography matrix
+6. Stich the two images and remove black pixels if any
+
+#### Results 
+
+- Panorama of given images
+
+
+### Algorithm for stiching multiple images
+
+1. Given a set of images, calculate descriptors for all using SIFT
+2. Apply above algotithm for every two images
+3. Keep removing black pixels if any
+
+#### Results
+
+- Panorama of given images
